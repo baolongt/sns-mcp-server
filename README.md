@@ -1,43 +1,61 @@
 # mcp-sns-server MCP Server
 
-A Model Context Protocol server
+A Model Context Protocol server for interacting with DAOs on the Internet Computer
 
-This is a TypeScript-based MCP server that implements a simple notes system. It demonstrates core MCP concepts by providing:
+This is a TypeScript-based MCP server that implements an interface to Service Nervous System (SNS) DAOs. It demonstrates core MCP concepts by providing tools to interact with decentralized autonomous organizations.
 
-- Resources representing text notes with URIs and metadata
-- Tools for creating new notes
-- Prompts for generating summaries of notes
+## Setup
+
+add your seed phrase to env file
+
+```
+cp .env.example .env
+```
 
 ## Features
 
-### Resources
-- List and access notes via `note://` URIs
-- Each note has a title, content and metadata
-- Plain text mime type for simple content access
-
 ### Tools
-- `create_note` - Create new text notes
-  - Takes title and content as required parameters
-  - Stores note in server state
 
-### Prompts
-- `summarize_notes` - Generate a summary of all stored notes
-  - Includes all note contents as embedded resources
-  - Returns structured prompt for LLM summarization
+- `list_proposals` - List all proposals for a specific DAO
+
+  - Takes DAO name as parameter
+  - Returns list of proposals from the specified DAO
+
+- `list_votable_neurons` - List all votable neurons for a user in a DAO
+
+  - Takes DAO name and principal ID as parameters
+  - Returns neurons that can vote on proposals
+
+- `get_system_parameters` - List all configuration parameters for a DAO
+
+  - Takes DAO name as parameter
+  - Returns system parameters for the specified DAO
+
+- `wallet` - Get the user's wallet information
+
+  - Returns the principal ID of the current wallet
+
+- `vote_proposal` - Vote on a proposal
+  - Takes DAO name, principal ID, neuron ID, proposal ID, and vote preference
+  - Allows voting yes, no, or unspecified on proposals
+  - Registers vote with the DAO governance system
 
 ## Development
 
 Install dependencies:
+
 ```bash
 npm install
 ```
 
 Build the server:
+
 ```bash
 npm run build
 ```
 
 For development with auto-rebuild:
+
 ```bash
 npm run watch
 ```
