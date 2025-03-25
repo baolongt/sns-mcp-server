@@ -2,6 +2,10 @@
 
 A Model Context Protocol server for interacting with DAOs on the Internet Computer
 
+<a href="https://glama.ai/mcp/servers/@baolongt/sns-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@baolongt/sns-mcp-server/badge" alt="SNS Server MCP server" />
+</a>
+
 This is a TypeScript-based MCP server that implements an interface to Service Nervous System (SNS) DAOs. It demonstrates core MCP concepts by providing tools to interact with decentralized autonomous organizations.
 
 [Demo](https://www.youtube.com/watch?v=Ljg0ee-8UFM)
