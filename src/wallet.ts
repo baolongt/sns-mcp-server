@@ -1,4 +1,6 @@
+import { DelegationChain, DelegationIdentity } from "@dfinity/identity";
 import { Secp256k1KeyIdentity } from "@dfinity/identity-secp256k1";
+import { toBase64 } from "@slide-computer/signer";
 import * as bip39 from "bip39";
 import dotenv from "dotenv";
 
@@ -46,7 +48,6 @@ export const initWallet = () => {
   try {
     // Recover identity using the seed phrase
     const identity = recoverFromMnemonic(seedPhrase);
-
     return identity;
   } catch (error) {
     console.error("Failed to initialize wallet:", error);
